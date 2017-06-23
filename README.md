@@ -11,3 +11,6 @@ Although it is similar to stack-based programming, NewStack is not strictly boun
 
 
 [tutorial]: https://github.com/YamCoding/NewStack/wiki/Tutorial
+
+
+*Current build: 0.01*
