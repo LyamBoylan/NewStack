@@ -392,6 +392,7 @@ def boolean(tp,formula,num,comp):
 	elif tp==',':bl=(str(num) in str(comp))
 	elif tp=='\'':bl=(str(comp) in str(num))
 	elif tp=='ϵ':bl=element(comp,num)
+	elif tp=='ȼ':bl=not element(comp,num)
 	return(bl)
 
 def nextindex(st,search,index=0,fbrackets=False,level=0):
@@ -675,6 +676,19 @@ def runcmd(cmd,code,parser):
 		for i in stack:
 			tstack+=[number(j) for j in str(i)]
 		stack=[i for i in tstack]
+	elif cmd=='u':
+		tstack=[]
+		for i in stack:
+			if i not in tstack:tstack+=[i]
+		stack=[i for i in tstack]
+	elif cmd=='U':
+		tstack1=[]
+		tstack2=[]
+		for i in stack:
+			if i not in tstack1:tstack1+=[i]
+			else:tstack2+=[i]
+		stack=[i for i in stack if not (i in tstack1 and i in tstack2)]
+
 	return(0)
 
 def runCode(code,pstack=True):
